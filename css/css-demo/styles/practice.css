@@ -13,3 +13,8 @@ section#contact-info{
 .smaller-text {
 	font-size: .8em;
 }
+
+.highlight:hover { background-color: orange; 
+}
+
+section.job>ul { background-color: red; }
