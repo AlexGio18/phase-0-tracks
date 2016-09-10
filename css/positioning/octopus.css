@@ -1,0 +1,24 @@
+
+#fashion-octopus {
+	width: 250px;
+	margin: 0 auto;
+}
+
+#octopus {
+	position: absolute;
+	top: 125px;
+}
+
+#glasses { 
+	position: absolute;
+	padding-left: 43px;
+	top: 222px;
+	z-index: 1;
+}
+
+#hat {
+	position: relative;
+	z-index: 1;
+	top: 50px;
+	left: -15px;
+}
