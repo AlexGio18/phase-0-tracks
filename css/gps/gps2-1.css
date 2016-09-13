@@ -1,3 +1,45 @@
 body {
-	background-color: purple;
+  background-color: blue;
+  width: 98%;
+  font-family: cursive;
+  margin: 0 auto;
+}
+
+p { font-family: futura;}
+
+header {
+  background-color: yellow;
+  padding: 10px;
+  margin-bottom: 25px;
+}
+
+header h1 {
+  text-align: center;
+}
+
+.column-1 {
+  background-color: lightgreen;
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
+  height: 1500px;
+  padding: 1.5%;
+  border: 5px dashed orange;
+}
+
+.column-2 {
+  background-color: lightgrey;
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
+  height: 1500px;
+  padding: 1.5%;
+  border: 5px double red;
+}
+
+footer {
+  background-color: red;
+  margin: 30px;
+  text-align: center;
+  padding: 15px;
 }
