@@ -1,0 +1,41 @@
+Elevator Algorithm
+
+- choose a destination floor.
+- move to Elevator up/down button.
+- if going up, press (up) button.
+- if going down, press (down) button.
+- else, move away from elevator.
+
+- after pressing button, wait for elevator to arrive.
+- when elevator doors open, enter elevator.
+- move to floor button panel.
+	- if (up), press a floor button higher than current floor.
+	- if (down), press a floor button lower than current floor.
+
+- elevator doors close; ride elevator to destination floor.
+- when elevator doors open, move through the doors onto destination floor.
+
+Washing Dishes Algorithm
+
+- Soap-Sponge: 
+	- grab sponge.
+	- apply soap to sponge.
+
+- Wash-Dish:
+	- If sponge has no soap, [Soap-Sponge]
+		- else, move on to next step.
+	- select dish from dirty dish pile
+	- soap down dish with sponge.
+	- turn faucet on to (hot) position.
+	- rinse.
+	- turn faucet off.
+	- dry dish with towel.
+	- add dish to clean dish pile.
+
+- loop [Wash-Dish]
+	- until dirty dish pile reaches: 0
+	
+- [Wash-Dish] on last dish.
+- when last dish is added to clean dish pile. Stop!
+- Celebrate.
+
