@@ -6,7 +6,7 @@ vamp_con3 = 'Probably a vampire.'
 
 vamp_con4 = 'Almost certainly a vampire.'
 
-vamp_con5 = 'Results inconclusive'
+vamp_con5 = 'Results inconclusive.'
 
 
 puts 'How many employees will be processed?'
@@ -67,24 +67,33 @@ while employees_to_process.to_i > 0
 		wolves_like_healthinsurance = false
 		
 	end
+	
+# I really struggled with this loop. I finally got it to output correctly, but it needs to loop at least once unless you input sunlight.
+puts 'List your allergies:'
+	allergy = gets.chomp
 
-	loop 
-			puts 'List your allergies:'
+	while allergy != 'sunlight' 
 
-				allergy = gets.chomp
+		allergy = gets.chomp
+		
+		if allergy == 'sunlight'
+			break 
 
-			while allergy.downcase != 'sunlight' || allergy.downcase != 'garlic'
-				
-				if allergy.downcase == 'sunlight' || allergy.downcase == 'garlic'
+		elsif allergy.include? 'no'		
+			break
+		end
 
-					puts vamp_con3
-					break
-			end
 	end
+
 
 	if vampire_name == true
 		puts vamp_con1
+		puts ' '
 
+	elsif 
+		allergy == 'sunlight'
+		puts vamp_con3
+		puts ' '
 		
 		elsif
 			vampire_name == false && werewolf_age == true && (wolves_like_garlic == true || wolves_like_healthinsurance == true)
@@ -112,3 +121,6 @@ employees_to_process = employees_to_process.to_i - 1
 		break
 	end
 end
+
+puts 'Actually, never mind! What do these questions have to do with anything? Let\'s all be friends.'
+puts ' '
