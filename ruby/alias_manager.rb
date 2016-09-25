@@ -42,15 +42,7 @@ end
 def alias_chars(name_chars)
 name_chars.map! do |chars|
 	chars = chars.downcase
-	if chars == "a"
-		next_vowel(chars)
-	elsif chars == "e"
-		next_vowel(chars)
-	elsif chars == "i"
-		next_vowel(chars)
-	elsif chars == "o"
-		next_vowel(chars)
-	elsif chars == "u"
+	if chars == 'a' || chars == 'e' || chars == 'i' || chars == 'o' || chars == 'u'
 		next_vowel(chars)
 	else 
 		next_consonant(chars)
