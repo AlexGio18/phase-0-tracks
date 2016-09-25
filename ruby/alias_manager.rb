@@ -74,5 +74,11 @@ firstname_chars = chars_array(firstname)
 alias_lastname =  alias_chars(lastname_chars).join('').capitalize
 alias_firstname = alias_chars(firstname_chars).join('').capitalize
 
-p alias_lastname
-p alias_firstname
+alias_fullname = alias_firstname + ' ' + alias_lastname
+
+# p alias_lastname
+# p alias_firstname
+
+puts "#{real_name}, you're new name is #{alias_fullname}"
+
+puts "end"
