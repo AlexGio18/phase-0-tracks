@@ -8,37 +8,71 @@
 6. write a method that changes consonant to next consonant.
 =end
 
+#method that splits up First Name and Last Name into two valus in an array
 def name_array(name)
 	name.split(' ')
 end
 
+#method that splits up the characters of first name and last name into arrays
 def chars_array(name)
 	name.chars
 end
 
+#method that if character is a vowel, move it to next possible vowel
 def next_vowel(letter)
 	vowels = 'aeiou'
 		if letter =='u'
-			next_consonant = 'a'
+			next_vowel = 'a'
 		else
-		next_vowel = vowels(vowels.index(letter) + 1)
+		next_vowel = vowels[vowels.index(letter) + 1]
 	end
 
 end
-
+#method that if character is a consonant, move it to next possible consonant
 def next_consonant(letter)
 	consonants = 'bcdfghjklmnpqrstvwxyz'
 		if letter == 'z'
 			next_consonant = 'b'
 		else 
-		next_consonant = consonants(consonants.index(letter) + 1)
+		next_consonant = consonants[consonants.index(letter) + 1]
 	end
+end
+
+def alias_chars(name_chars)
+name_chars.map! do |chars|
+	chars = chars.downcase
+	if chars == "a"
+		next_vowel(chars)
+	elsif chars == "e"
+		next_vowel(chars)
+	elsif chars == "i"
+		next_vowel(chars)
+	elsif chars == "o"
+		next_vowel(chars)
+	elsif chars == "u"
+		next_vowel(chars)
+	else 
+		next_consonant(chars)
+	end
+end
 end
 
 puts "Psst... hey spy... give me your name."
 real_name = gets.chomp
-p name_array(real_name) = 
 
-chars_array1 = rev_name_array[0].chars 
-chars_array2 = rev_name_array[1].chars 
+lastname_firstname = name_array(real_name).reverse
+#p lastname_Firstname
 
+lastname = lastname_firstname[0]
+firstname = lastname_firstname [1]
+
+lastname_chars = chars_array(lastname)
+firstname_chars = chars_array(firstname)
+# p lastname_chars
+# p firstname_chars
+
+alias_lastname =  alias_chars(lastname_chars).join('').capitalize
+alias_firstname = alias_chars(firstname_chars).join('').capitalize
+
+p alias_lastname
+p alias_firstname
