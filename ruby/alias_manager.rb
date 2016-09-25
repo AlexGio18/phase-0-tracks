@@ -37,7 +37,8 @@ def next_consonant(letter)
 		next_consonant = consonants[consonants.index(letter) + 1]
 	end
 end
-
+#method that looks at each character, decides which vowel it is, and swaps to next.
+#every letter that is not a vowel is a consonant, so else swaps to enxt consonant.
 def alias_chars(name_chars)
 name_chars.map! do |chars|
 	chars = chars.downcase
@@ -57,28 +58,32 @@ name_chars.map! do |chars|
 end
 end
 
-puts "Psst... hey spy... give me your name."
-real_name = gets.chomp
+real_name = ' '
+until real_name == 'quit'
+	puts "Psst... hey spy... give me your name(type 'quit' to exit)."
+	real_name = gets.chomp
 
-lastname_firstname = name_array(real_name).reverse
-#p lastname_Firstname
+	if real_name != 'quit'
+	lastname_firstname = name_array(real_name).reverse
+	#p lastname_Firstname
 
-lastname = lastname_firstname[0]
-firstname = lastname_firstname [1]
+	lastname = lastname_firstname[0]
+	firstname = lastname_firstname [1]
 
-lastname_chars = chars_array(lastname)
-firstname_chars = chars_array(firstname)
-# p lastname_chars
-# p firstname_chars
+	lastname_chars = chars_array(lastname)
+	firstname_chars = chars_array(firstname)
+	# p lastname_chars
+	# p firstname_chars
 
-alias_lastname =  alias_chars(lastname_chars).join('').capitalize
-alias_firstname = alias_chars(firstname_chars).join('').capitalize
+	alias_lastname =  alias_chars(lastname_chars).join('').capitalize
+	alias_firstname = alias_chars(firstname_chars).join('').capitalize
 
-alias_fullname = alias_firstname + ' ' + alias_lastname
+	alias_fullname = alias_firstname + ' ' + alias_lastname
 
-# p alias_lastname
-# p alias_firstname
+	# p alias_lastname
+	# p alias_firstname
 
-puts "#{real_name}, you're new name is #{alias_fullname}"
-
+	puts "#{real_name}, you're new name is #{alias_fullname}"
+	end
+end
 puts "end"
