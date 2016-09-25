@@ -21,8 +21,6 @@ p calculate(20,'/',5)
 =end
 
 puts "Welcome to calculate."
-puts "How many times would you like to calculate?"
-num_times = gets.chomp.to_i
 
 puts "Calculate ('done' to quit):"
 
