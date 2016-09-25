@@ -58,7 +58,13 @@ name_chars.map! do |chars|
 end
 end
 
+puts "Welcome to the Alias Program"
+puts
+
 real_name = ' '
+real_name_array = []
+alias_name_array = []
+
 until real_name == 'quit'
 	puts "Psst... hey spy... give me your name(type 'quit' to exit)."
 	real_name = gets.chomp
@@ -79,11 +85,26 @@ until real_name == 'quit'
 	alias_firstname = alias_chars(firstname_chars).join('').capitalize
 
 	alias_fullname = alias_firstname + ' ' + alias_lastname
-
 	# p alias_lastname
 	# p alias_firstname
+	
+	puts "#{real_name}, you're new name is #{alias_fullname}."
 
-	puts "#{real_name}, you're new name is #{alias_fullname}"
+	real_name_array << real_name
+	alias_name_array << alias_fullname
+	counter = 0
+	# p alias_name_array
+	# p real_name_array
+
+	else 
+		while counter < real_name_array.length
+			puts 
+			puts "#{real_name_array[counter]} is now #{alias_name_array[counter]}."
+		counter += 1
+	end
+		puts
+		puts "End Alias program."
 	end
 end
-puts "end"
+ 
+
