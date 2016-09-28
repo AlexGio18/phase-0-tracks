@@ -48,6 +48,7 @@ def add_item_to_grocery_list(grocery_list, grocery_name, quantity)
 def remove_item_grocery_list(grocery_list, grocery_name)
 	if grocery_list.include?(grocery_name)
 	grocery_list.delete(grocery_name)
+	grocery_list
 	else return false
 	end
 end
@@ -91,3 +92,29 @@ print_grocery_list(grocery_list)
 puts "Changed Ice Cream quantity to 1"
 update_item_quantity(grocery_list, "Ice Cream", "1" )
 print_grocery_list(grocery_list)
+
+=begin
+REFLECT ----------------------------------------------------------->
+
+What did you learn about pseudocode from working on this challenge?
+Pseudocoding is hard if you're not specific. It purpose is to help you understand what
+you want to code, and how to get the most out of your code.
+
+What are the tradeoffs of using arrays and hashes for this challenge?
+Because the grocery list contains a key and value(name and quantity) It is best to use a hash.
+
+What does a method return?
+Methods in Ruby return an implicit return. Which means a method will always return the 
+state of the last variable called.
+
+What kind of things can you pass into methods as arguments?
+Variables, strings, integers, floats, data structures, and other methods.
+
+How can you pass information between methods?
+By passing them as arguments for methods.
+
+What concepts were solidified in this challenge, and what concepts are still confusing?
+It solidified my understanding of how hashes work a bit better. I'm still confused by syntax: when 
+something should be used in a method or when to call the arguments passed when structuring a method.
+
+=end
