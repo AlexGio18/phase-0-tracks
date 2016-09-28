@@ -36,6 +36,10 @@ p add_item_to_grocery_list(grocery_list,"beans","5")
 # input: ask user for item name
 # steps: delete key from hash
 # output: drivercode shows that key is removed
+def remove_item_grocery_list(grocery_list, grocery_name)
+	grocery_list.delete([grocery_name])
+	grocery_list
+end
 
 # Method to update the quantity of an item
 # input: ask user to if they want to change the quantity, if they do
