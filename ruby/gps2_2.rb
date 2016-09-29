@@ -118,3 +118,6 @@ It solidified my understanding of how hashes work a bit better. I'm still confus
 something should be used in a method or when to call the arguments passed when structuring a method.
 
 =end
+
+cats.each do |method|
+	cats[kitten_names].method
