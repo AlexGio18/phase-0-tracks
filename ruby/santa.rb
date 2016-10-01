@@ -1,7 +1,7 @@
 #CLASS CODE ------------------------->
 class Santa
 
-	attr_reader :name, :ethnicity, :reindeer_ranking
+	attr_reader :name, :ethnicity, :reindeer_ranking, :age
 	attr_accessor :gender
 
 	def initialize(name, gender, ethnicity)
@@ -9,7 +9,7 @@ class Santa
 		@gender = gender
 		@ethnicity = ethnicity
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-		@age = 0
+		@age = rand(140)
 	end
 
 	def speak
@@ -34,9 +34,9 @@ class Santa
 end
 
 santas = []
-example_names = ["Carston", "Vida","Miguela","Bob","Cath","Tysson","Gauté"]
+example_names = ["Carston", "Vida","Miguela","Bob","Cath","Tysson","Gauté", "Kelson", "Stevery"]
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
-example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A", "middle-eastern"]
 	
 
 example_genders.each_index do |i|
@@ -44,7 +44,17 @@ example_genders.each_index do |i|
 	puts "Initializing Santa..."
 	puts "This Santa's name is #{santas[i].name}, gender is #{santas[i].gender} and ethnicity is #{santas[i].ethnicity}."
 end
+#DRIVER CODE (release 4) ------------------------->
+santas_release4 = []
+	70.times do |i|
+		santas_release4 << Santa.new(example_names.sample, example_genders.sample, example_ethnicities.sample)
+	end
 
+santas_release4.map! do |santa|
+	puts 
+	puts "Santa's name: #{santa.name} | Santa's age: #{santa.age} | Santa's gender: #{santa.gender} | Santa's ethnicity: #{santa.ethnicity} "
+	puts
+end
 #DRIVER CODE (release 3) ------------------------->
 #(verified)
 
