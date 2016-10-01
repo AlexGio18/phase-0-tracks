@@ -1,5 +1,9 @@
 #CLASS CODE ------------------------->
 class Santa
+
+	attr_reader :name, :ethnicity, :reindeer_ranking
+	attr_accessor :gender
+
 	def initialize(name, gender, ethnicity)
 		@name = name
 		@gender = gender
@@ -17,26 +21,7 @@ class Santa
 		cookie_type
 	end
 
-
-
-	#getter methods
-	def name
-		@name
-	end
-
-	def gender
-		@gender
-	end
-
-	def ethnicity
-		@ethnicity
-	end
-
-	def reindeer_ranking
-		@reindeer_ranking
-	end
-	
-	#new methods
+#new methods
 	def celebrate_birthday
 		@age += 1
 	end
@@ -45,11 +30,6 @@ class Santa
 		reindeer_index = @reindeer_ranking.index(reindeer)
 		@reindeer_ranking.delete_at(reindeer_index)
 		@reindeer_ranking[-1] = reindeer
-	end
-
-	#gender setter method
-	def gender= (new_gender)
-		@gender = new_gender
 	end
 end
 
@@ -65,24 +45,28 @@ example_genders.each_index do |i|
 	puts "This Santa's name is #{santas[i].name}, gender is #{santas[i].gender} and ethnicity is #{santas[i].ethnicity}."
 end
 
+#DRIVER CODE (release 3) ------------------------->
+#(verified)
+
 #DRIVER CODE (release 2) ------------------------->
-p santas[1].name
-p santas[2].celebrate_birthday
-puts
-puts "original gender"
-p santas[0].gender
-puts
-puts "newly assigned gender"
-p santas[0].gender=("transgender")
-puts
-puts "Getting mad at a reindeer:"
-p santas[3].reindeer_ranking
-puts
-puts "Gets sent to the back of the ranks"
-p santas[3].get_mad_at("Dancer")
-puts
-puts "Now at the back"
-p santas[3].reindeer_ranking
+# p santas[1].name
+# p santas[2].celebrate_birthday
+# puts
+# puts "original gender"
+# p santas[0].gender
+# puts
+# puts "newly assigned gender"
+# p santas[0].gender=("transgender")
+# puts
+# puts "Getting mad at a reindeer:"
+# p santas[3].reindeer_ranking
+# puts
+# puts "Gets sent to the back of the ranks"
+# p santas[3].get_mad_at("Dancer")
+# puts
+# puts "Now at the back"
+# p santas[3].reindeer_ranking
+
 #DRIVER CODE (release 1) ------------------------->
 # p santas[1]
 # p santas[2,3]
