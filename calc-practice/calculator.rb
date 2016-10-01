@@ -1,15 +1,18 @@
 def calculate(n,op,i)
 	if op == '+'
-		return n + i
-	end
-	if op == '-'
-		return n - i
-	end
-	if op == '*'
-		return n * i
-	end
-	if op == '/'
-		return n / i
+		n + i
+
+	elsif op =='-'
+		n - i
+	
+	elsif op == '*'
+		n * i
+	
+	elsif op == '/'
+		n / i
+
+	else
+		puts "Invalid Input"
 	end
 end
 
