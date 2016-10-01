@@ -39,7 +39,7 @@ until problem == ['done']
 	puts calculate(n,op,i)
 
 	array = []
-	array << problem
+	array << problem << "=" <<  
 	counter = 0
 	
 	while counter < array.length
