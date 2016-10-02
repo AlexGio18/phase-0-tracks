@@ -55,6 +55,7 @@ class WordGame
   		elsif @guess_counter == @max_guesses
   			return game_is_lost
   		end
+  		puts "#{@underscore_word.join}"
   	end
 
 end
@@ -77,7 +78,6 @@ until new_game.end_game == true
 	puts "Input your guess:"
 	player2_guess = gets.chomp
 	new_game.check_guess(player2_guess)
-	p new_game.underscore_word.join
 	break if new_game.end_game == true
 end
 
