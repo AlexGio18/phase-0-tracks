@@ -8,7 +8,7 @@ class WordGame
 		@max_guesses = word.length
 		@guess_counter = 0
 		@guess_array = []
-		@underscore_word = []; word.length.times{ @underscore_word << "_"}
+		@underscore_word = []; word.length.times{ @underscore_word << " _ "}
 		@end_game = false
 	end
 
@@ -55,11 +55,33 @@ class WordGame
   		elsif @guess_counter == @max_guesses
   			return game_is_lost
   		end
-
   	end
+
 end
 
-new_game = WordGame.new("word")
+#USER INTERFACE ----------------------------------------------------------->
+
+puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+puts "Welcome to the 'Can you guess it?' WORD GAAAAAMEEEEEE!"
+puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+puts "Here's how this will work:"
+puts "Player 1, please input your 'secret' WORD!"
+require 'io/console'
+new_game = WordGame.new(STDIN.noecho(&:gets).chomp)
+puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+puts "Now, player 2's turn. Take a look at the spaces! You will have #{new_game.max_guesses} guesses."
+p new_game.underscore_word.join
+puts "You can input one letter at a time, or if you're feeling lucky, guess the entire word!"
+
+until new_game.end_game == true
+	puts "Input your guess:"
+	player2_guess = gets.chomp
+	new_game.check_guess(player2_guess)
+	p new_game.underscore_word.join
+	break if new_game.end_game == true
+end
+
+
 #DRIVER CODE ----------------------------------------------------------->
 
 # p new_game
