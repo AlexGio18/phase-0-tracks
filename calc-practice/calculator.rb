@@ -10,11 +10,11 @@ def calculate(n,op,i)
 	
 	elsif op == '/'
 		n / i
-
 	else
 		puts "Invalid Input"
 	end
 end
+
 
 =begin
 p calculate(4,'+', 5)
@@ -29,7 +29,8 @@ puts "Calculate ('done' to quit):"
 
 # p problem
 problem = ' '
-array = []
+array = {}
+counter = 0 
 
 until problem == ['done']
 
@@ -37,19 +38,11 @@ until problem == ['done']
 	problem = gets.chomp.split
 	n = problem[0].to_i
 	op = problem[1] 
-	i = problem[2].to_i  
+	i = problem[2].to_i 
 	
 	puts calculate(n,op,i)
-
-	array = []
-	array << problem
-	counter = 0
-	
-	while counter < array.length
-		puts 
-		puts "#{array[counter]}"
-	counter += 1
 	end
+
 
 end
 end
