@@ -41,6 +41,18 @@ until problem == ['done']
 	i = problem[2].to_i 
 	
 	puts calculate(n,op,i)
+<<<<<<< HEAD
+=======
+
+	array = []
+	array << problem << "=" <<  
+	counter = 0
+	
+	while counter < array.length
+		puts 
+		puts "#{array[counter]}"
+	counter += 1
+>>>>>>> 90eea416105205ed3caadbd587ebb3d5acd9deec
 	end
 
 
