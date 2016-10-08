@@ -1,64 +1,75 @@
+
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [Chinh].
+# We spent [1.5] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# require_relative pulls data from the same location/ related data
+# require needs to have the full filepath
+
 require_relative 'state_data'
 
 class VirusPredictor
 
+  # pulling the data from the state_data.rb and setting to the variables
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
+  #calling the the predicted_deaths and speed_of_spread, its taking the information
+  #thats passed through from initialize and applying the two methods
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
+    puts "#{@state} will lose #{@number_of_deaths} people in this outbreak and will spread across the state in #{@speed} months.\n\n"
   end
 
+#private method keeps methods from being accessed outside of the class. This keeps the code modular and free of class methods breaking,
+# or accessing them from the outside.
   private
 
-  def predicted_deaths(population_density, population, state)
+  #predicted_deaths is a method that takes the population density data from a 
+  #state and finds out how much percentage of the population will die.
+
+    def predicted_deaths
     # predicted deaths is solely based on population density
     if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
+      percent = 0.4
     elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
+      percent = 0.3
     elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
+      percent = 0.2
     elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
+      percent = 0.1
     else
-      number_of_deaths = (@population * 0.05).floor
+      percent = 0.05
     end
 
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+    @number_of_deaths = (@population * percent).floor
 
-  end
+  end  
 
-  def speed_of_spread(population_density, state) #in months
+#speed_of_spread method looks at population density for the state and gives you an
+#estimated time for how long the virus will spread.
+
+  def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
-    speed = 0.0
 
     if @population_density >= 200
-      speed += 0.5
+      @speed = 0.5
     elsif @population_density >= 150
-      speed += 1
+      @speed = 1
     elsif @population_density >= 100
-      speed += 1.5
+      @speed = 1.5
     elsif @population_density >= 50
-      speed += 2
+      @speed = 2
     else
-      speed += 2.5
+      @speed = 2.5
     end
-
-    puts " and will spread across the state in #{speed} months.\n\n"
 
   end
 
@@ -69,18 +80,22 @@ end
 # DRIVER CODE
  # initialize VirusPredictor for each state
 
+STATE_DATA.each do |states, population_hash|
+  VirusPredictor.new(states, population_hash[:population_density], population_hash[:population]).virus_effects
+end
 
-alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
-alabama.virus_effects
 
-jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
-jersey.virus_effects
+# alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
+# alabama.virus_effects
 
-california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
-california.virus_effects
+# jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
+# jersey.virus_effects
 
-alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
-alaska.virus_effects
+# california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
+# california.virus_effects
+
+# alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
+# alaska.virus_effects
 
 
 #=======================================================================
