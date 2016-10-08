@@ -100,3 +100,27 @@ end
 
 #=======================================================================
 # Reflection Section
+
+=begin
+What are the differences between the two different hash syntaxes shown in the state_data file?
+  The difference is that the state is the outside hash(a key), which is calling the population hash(the value).
+  Within the population hash, there are two keys (population_density, population) and their respective values.
+
+What does require_relative do? How is it different from require?
+  require_relative works by calling on a related document within the same directory. As long as it's in the same directory, and
+  the filename is called, it will be acquired.
+
+  require is more general; it can be applied to multiple documents without being related, but the exact filepath is necessary.
+
+What are some ways to iterate through a hash?
+  .each is a good way to iterate through a hash, and setting the key and value types within the block. Another way might be using a
+  loop, but would require more syntax, and would probably be less DRY.
+
+When refactoring virus_effects, what stood out to you about the variables, if anything?
+  The arguments being passed were redundant; all the data was being called in the initialize method and then passed through to the 
+  private methods.
+
+What concept did you most solidify in this challenge?
+  I now know that arguments should not be passed within the internal methods of a class. All data is present during initiliaze, and 
+  the instance methods are there to change that data, but not add to it.
+=end
