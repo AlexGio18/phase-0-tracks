@@ -1,0 +1,65 @@
+##QUERIES -------------------->
+
+1. 
+INPUT sqlite> SELECT * FROM vikings;
+
+OUTPUT: 1|Gwynn Falcundr|37|Flail|2
+		2|Vikandyr Meldawr|28|Dual Blades|1
+		3|Kelssohn Wylven|31|Sword/Shield|1
+		4|Rollo Verdogsahn|42|Massive Spiked Club|3
+		5|Trygg Sundergarhm|33|Sword/Shield|2
+		6|Bjarni Karlssohn|40|Claymore|1
+		7|Dorfinnr, the Grey|37|Staff/Short Sword|3
+		8|Erik Leifblawr|35|Morningstar|3
+		9|Gurnbrolf Hvennsigen|29|Dual Axes|2
+		10|Sven Koenr|28|Daggers|3
+		11|Olaf Atmehrynn|32|Mace/Shield|2
+		12|Hahmbruglarn|38|Pepper Spray|2
+
+2.
+INPUT sqlite> UPDATE vikings SET weapon_of_choice = "Dane Axe" Where weapon_of_choice = "Sword/Shield";
+
+OUTPUT: 3|Kelssohn Wylven|31|Dane Axe|1
+		5|Trygg Sundergarhm|33|Dane Axe|2
+
+3.
+INPUT sqlite> SELECT * FROM vikings, norse_settlement WHERE vikings.settlement_id = norse_settlement.id; 
+
+OUTPUT: 1|Gwynn Falcundr|37|Flail|2|2|Braumsoldyr|855|Norway
+		2|Vikandyr Meldawr|28|Dual Blades|1|1|Skraelingjar|473|Iceland
+		3|Kelssohn Wylven|31|Dane Axe|1|1|Skraelingjar|473|Iceland
+		4|Rollo Verdogsahn|42|Massive Spiked Club|3|3|Keilandorn|568|Denmark
+		5|Trygg Sundergarhm|33|Dane Axe|2|2|Braumsoldyr|855|Norway
+		6|Bjarni Karlssohn|40|Claymore|1|1|Skraelingjar|473|Iceland
+		7|Dorfinnr, the Grey|37|Staff/Short Sword|3|3|Keilandorn|568|Denmark
+		8|Erik Leifblawr|35|Morningstar|3|3|Keilandorn|568|Denmark
+		9|Gurnbrolf Hvennsigen|29|Dual Axes|2|2|Braumsoldyr|855|Norway
+		10|Sven Koenr|28|Daggers|3|3|Keilandorn|568|Denmark
+		11|Olaf Atmehrynn|32|Mace/Shield|2|2|Braumsoldyr|855|Norway
+		12|Hahmbruglarn|38|Pepper Spray|2|2|Braumsoldyr|855|Norway
+
+4. INPUT sqlite> SELECT vikings.id, vikings.name, norse_settlement.name FROM vikings, norse_settlement WHERE vikings.settlement_id = norse_settlement.id;
+
+OUTPUT: 1|Gwynn Falcundr|Braumsoldyr
+		2|Vikandyr Meldawr|Skraelingjar
+		3|Kelssohn Wylven|Skraelingjar
+		4|Rollo Verdogsahn|Keilandorn
+		5|Trygg Sundergarhm|Braumsoldyr
+		6|Bjarni Karlssohn|Skraelingjar
+		7|Dorfinnr, the Grey|Keilandorn
+		8|Erik Leifblawr|Keilandorn
+		9|Gurnbrolf Hvennsigen|Braumsoldyr
+		10|Sven Koenr|Keilandorn
+		11|Olaf Atmehrynn|Braumsoldyr
+		12|Hahmbruglarn|Braumsoldyr
+
+5. INPUT sqlite> DELETE FROM vikings WHERE vikings.settlement_id = 3;
+
+OUTPUT: 1|Gwynn Falcundr|37|Flail|2
+		2|Vikandyr Meldawr|28|Dual Blades|1
+		3|Kelssohn Wylven|31|Dane Axe|1
+		5|Trygg Sundergarhm|33|Dane Axe|2
+		6|Bjarni Karlssohn|40|Claymore|1
+		9|Gurnbrolf Hvennsigen|29|Dual Axes|2
+		11|Olaf Atmehrynn|32|Mace/Shield|2
+		12|Hahmbruglarn|38|Pepper Spray|2
