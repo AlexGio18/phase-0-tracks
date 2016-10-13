@@ -63,3 +63,29 @@ OUTPUT: 1|Gwynn Falcundr|37|Flail|2
 		9|Gurnbrolf Hvennsigen|29|Dual Axes|2
 		11|Olaf Atmehrynn|32|Mace/Shield|2
 		12|Hahmbruglarn|38|Pepper Spray|2
+
+##JOIN_QUERIES -------------------->
+
+sqlite> SELECT vikings.name, weapon_of_choice, population FROM vikings INNER JOIN norse_settlement ON vikings.settlement_id = norse_settlement.id;
+
+Gwynn Falcundr|Flail|855
+Vikandyr Meldawr|Dual Blades|473
+Kelssohn Wylven|Dane Axe|473
+Trygg Sundergarhm|Dane Axe|855
+Bjarni Karlssohn|Claymore|473
+Gurnbrolf Hvennsigen|Dual Axes|855
+Olaf Atmehrynn|Mace/Shield|855
+Hahmbruglarn|Pepper Spray|855
+
+sqlite> SELECT * FROM vikings LEFT JOIN norse_settlement ON vikings.settlement_id = norse_settlement.id;
+
+1|Gwynn Falcundr|37|Flail|2|2|Braumsoldyr|855|Norway
+2|Vikandyr Meldawr|28|Dual Blades|1|1|Skraelingjar|473|Iceland
+3|Kelssohn Wylven|31|Dane Axe|1|1|Skraelingjar|473|Iceland
+5|Trygg Sundergarhm|33|Dane Axe|2|2|Braumsoldyr|855|Norway
+6|Bjarni Karlssohn|40|Claymore|1|1|Skraelingjar|473|Iceland
+9|Gurnbrolf Hvennsigen|29|Dual Axes|2|2|Braumsoldyr|855|Norway
+11|Olaf Atmehrynn|32|Mace/Shield|2|2|Braumsoldyr|855|Norway
+12|Hahmbruglarn|38|Pepper Spray|2|2|Braumsoldyr|855|Norway
+
+
