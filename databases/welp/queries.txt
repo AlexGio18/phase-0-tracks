@@ -1,0 +1,44 @@
+##QUERIES 1 --------------->
+
+SELECT *
+FROM reviews
+JOIN users
+	ON users.id = reviews.user_id
+JOIN businesses
+	ON businesses.id = reviews.business_id;
+
+##OUTPUT --------------->
+1|4|Pretty great quarantine services; I had a small outbreak of ZR80 strand in my queeble patch. Carly and her crew came in and within minutes had the Parclispids sealed off. Outstanding.|1|2|2|Beatrice|Scheckles|1|Carly's Quarantinerie
+2|5|Seriously, Mike's Mechs are the best in the bizz. No question.|4|3|3|Asimov|Sterling|4|Mike's Mechs
+3|2|Hmmph. Can't complain about the quality of Micron Corps weapons-- they're pretty much the standard in galactic weaponry. But they're automated robot service? Questionable to say the least.|2|1|1|Carmen|Van Buren|2|Micron Corp. Weapons Shop
+4|0|I hate Fatty Mcfatboy's.|3|4|4|Daniel|Varger|3|Fattyboy's Foodstand
+5|5|Fatty's ain't the place for a gorgolithian dining experience. But their Larmaag Fatboy is larmaagically delish. Get it?|3|1|1|Carmen|Van Buren|3|Fattyboy's Foodstand
+
+##QUERIES 2 --------------->
+SELECT users.first_name, businesses.business_name, reviews.stars, reviews.comment
+FROM reviews
+JOIN users
+	ON users.id = reviews.user_id
+JOIN businesses
+	ON businesses.id = reviews.business_id;
+
+##OUTPUT --------------->
+Beatrice|Carly's Quarantinerie|4|Pretty great quarantine services; I had a small outbreak of ZR80 strand in my queeble patch. Carly and her crew came in and within minutes had the Parclispids sealed off. Outstanding.
+Asimov|Mike's Mechs|5|Seriously, Mike's Mechs are the best in the bizz. No question.
+Carmen|Micron Corp. Weapons Shop|2|Hmmph. Can't complain about the quality of Micron Corps weapons-- they're pretty much the standard in galactic weaponry. But they're automated robot service? Questionable to say the least.
+Daniel|Fattyboy's Foodstand|0|I hate Fatty Mcfatboy's.
+Carmen|Fattyboy's Foodstand|5|Fatty's ain't the place for a gorgolithian dining experience. But their Larmaag Fatboy is larmaagically delish. Get it?
+
+##QUERIES 3 --------------->
+SELECT *
+FROM reviews
+JOIN users
+	ON users.id = reviews.user_id
+JOIN businesses
+	ON businesses.id = reviews.business_id
+WHERE businesses.business_name = "Fattyboy's Foodstand";
+
+##OUTPUT --------------->
+
+4|0|I hate Fatty Mcfatboy's.|3|4|4|Daniel|Varger|3|Fattyboy's Foodstand
+5|5|Fatty's ain't the place for a gorgolithian dining experience. But their Larmaag Fatboy is larmaagically delish. Get it?|3|1|1|Carmen|Van Buren|3|Fattyboy's Foodstand
