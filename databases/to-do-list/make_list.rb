@@ -33,6 +33,18 @@ create_to_do_list(db, "turkey_to_do_list")
 def add_task(db, table_name, name, time, importance)
 	db.execute("INSERT INTO #{table_name} (task_name, task_time, importance) VALUES (?, ?, ?)", [name, time, importance])
 end
+#DRIVER CODE ---------------->
+# add_task(db, "turkey_to_do_list", "rake leaves", 2, 5)
+
+def print_list(db, table_name)
+	puts "Your current to do list:"
+	tasks = db.execute("SELECT * FROM #{table_name}")
+	tasks.each do |task|
+		puts
+		puts "Task: #{task['id']} is #{task['task_name']} and will take #{task['task_time']} hours. It is #{task['importance']}/10 important."
+		puts
+	end
+end
 
 #DRIVER CODE ---------------->
-add_task(db, "turkey_to_do_list", "rake leaves", 2, 5)
+print_list(db,"turkey_to_do_list")
