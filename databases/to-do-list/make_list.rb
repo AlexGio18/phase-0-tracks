@@ -33,6 +33,10 @@ end
 def add_task(db, table_name, name, time, importance)
 	db.execute("INSERT INTO #{table_name} (task_name, task_time, importance) VALUES (?, ?, ?)", [name, time, importance])
 end
+
+def delete_task(db, table_name, task_name, task_id)
+	db.execute("DELETE FROM #{table_name} WHERE task_name = #{'task_name'} AND id = #{task_id}")
+end
 #DRIVER CODE ---------------->
 # add_task(db, "turkey_to_do_list", "rake leaves", 2, 5)
 
@@ -45,6 +49,8 @@ def print_list(db, table_name)
 	end
 end
 
+
+
 #DRIVER CODE ---------------->
 # print_list(db,"turkey_to_do_list")
 
@@ -53,10 +59,10 @@ end
 puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 puts "Welcome to your TO-DO LISTS"
 puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-puts "Would you like to make a new to do list?(y/n or exit)"
+puts "Would you like to make a new to do list?(y/n)"
 response = gets.chomp
 
-while response != "exit"
+while response != "n"
 	break if response == 'n'
 	if response == 'y'
 		puts "What would you like to name your to-do list?"
@@ -84,10 +90,51 @@ while response != "exit"
 	else 
 		puts "Not a valid input"
 		break
-	end	
+	end
 end
-	
 
+	puts "What list would you like to view?"
+	list_name = gets.chomp
+	print_list(db, list_name)
+
+
+response_3 = ""
+while response_3 != "exit"
+	
+	puts "Would you like to add or delete items to this list?(add/delete or exit)"
+	response_3 = gets.chomp
+	
+	if response_3 == 'exit'
+		puts "exiting..."
+		break
+
+	elsif response_3 == 'add'
+		puts "How many tasks would you like to add?"
+		task_num = gets.chomp.to_i	
+		task_num.times do 
+			puts "Task Name:"
+			task_name = gets.chomp
+			puts "Task time (hours):"
+			time = gets.chomp.to_i
+			puts "Task Importance (-/10):"
+			importance = gets.chomp.to_i
+			puts "saving..."
+			add_task(db, list_name, task_name, time, importance)
+		end
+
+	elsif response_3 == 'delete'
+		puts "Task ID:"
+		task_id = gets.chomp.to_i
+		puts "Task name:"
+		task_name = gets.chomp
+
+		delete_task(db,list_name,task_name, task_id)
+
+	else
+		puts "Not a valid input"
+	end
+	print_list(db, list_name)
+end
 # 	puts "Would you like to add a task to this list?(y/n)"
 # 	break if response == 'n'
 
@@ -95,3 +142,5 @@ end
 # 	puts "enter task name:"
 # 	gets.chomp = 
 #DRIVER CODE ---------------->
+# delete_task(db, "turkey_list", "do laundry")
+# print_list(db, "turkey_list")
