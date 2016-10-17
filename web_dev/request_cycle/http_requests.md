@@ -1,4 +1,4 @@
-What are some common HTTP status codes?
+### What are some common HTTP status codes?
 1. 200 OK- means that the server request has succeeded.
 
 2. 403 Forbidden - the server understood the request, but will not fulfill the request.
@@ -16,11 +16,11 @@ What are some common HTTP status codes?
 	* server may be forbidden to return the requested document
 	- 503 is usually temporary condition until the server is fixed.
 
-What is the difference between a GET request and a POST request? When might each be used?
+### What is the difference between a GET request and a POST request? When might each be used?
 They are the two most used HTTP methods. GET is used to retrieve remote data, and POST is used
 to insert/update remote data. There are quite a few differences between the two:
 
-GET
+**GET**
 - remain in search history because the parameters are part of the URL
 - can be bookmarked
 - can be refreshed
@@ -32,7 +32,7 @@ GET
 - visible in the browsers address bar
 - can be cached
 
-POST
+**POST**
 - not saved in browser history
 - can't be bookmarked
 - browser data will need to be resubmitteed when refreshed
@@ -51,7 +51,7 @@ POST is recommended when form data constains non-ASCII characters or large sets 
 where there are hundreds of characters, becaue GET cannot handle long URLs. Sites that use
 passwords or sensitive information, like email data, it is recommended to use POST.
 
-What is a cookie (the technical kind, not the delicious kind)? How does it relate to HTTP requests?
+### What is a cookie (the technical kind, not the delicious kind)? How does it relate to HTTP requests?
 Websites save information about the user as cookies. Cookies are data files stored on the user's computer,
 that is accessed during HTTP requests, that will read the code from the cookie file to tailor the users
 experience. An example of this is accessing a logged in site, the cookie holds your password/username for 
