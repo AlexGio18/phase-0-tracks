@@ -35,7 +35,7 @@ to insert/update remote data. There are quite a few differences between the two:
 **POST**
 - not saved in browser history
 - can't be bookmarked
-- browser data will need to be resubmitteed when refreshed
+- browser data will need to be resubmitted when refreshed
 - more difficult to hack
 - no restrictions on data type
 - more secure because parameters are not stored in browser history or in web server logs
@@ -45,14 +45,14 @@ to insert/update remote data. There are quite a few differences between the two:
 - not cached
 
 GET method is recommended when submitting "idempotent" forms, or forms that do not
-have side effects. This is appopriate to handle database queries.
+have side effects. This is appropriate to handle database queries.
 
-POST is recommended when form data constains non-ASCII characters or large sets of data,
-where there are hundreds of characters, becaue GET cannot handle long URLs. Sites that use
+POST is recommended when form data contains non-ASCII characters or large sets of data,
+where there are hundreds of characters, because GET cannot handle long URLs. Sites that use
 passwords or sensitive information, like email data, it is recommended to use POST.
 
 ### What is a cookie (the technical kind, not the delicious kind)? How does it relate to HTTP requests?
 Websites save information about the user as cookies. Cookies are data files stored on the user's computer,
-that is accessed during HTTP requests, that will read the code from the cookie file to tailor the users
+that is accessed during HTTP requests, that will read the code from the cookie file to tailor the user's
 experience. An example of this is accessing a logged in site, the cookie holds your password/username for 
 easy access.
